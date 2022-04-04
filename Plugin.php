@@ -1,8 +1,11 @@
 <?php namespace Winter\SendgridDriver;
 
+use App;
 use Backend;
 use Backend\Models\UserRole;
+use Event;
 use System\Classes\PluginBase;
+use System\Models\MailSetting;
 
 use Winter\Storm\Mail\MailManager;
 
@@ -29,19 +32,7 @@ class Plugin extends PluginBase
     public function register()
     {
         Event::listen('mailer.beforeRegister', function ($mailManager) {
-            $settings = MailSetting::instance();
-            if ($settings->send_mode === self::MODE_SENDGRID) {
-                $config = App::make('config');
-                $config->set('mail.mailers.sendgrid.transport', self::MODE_SENDGRID);
-                $config->set('services.sendgrid.api_key', $settings->sendgrid.api_key);
-            }
-        });
-    }
-
-    public function boot()
-    {
-        MailManager::extend(function ($manager) {
-            $manager->addDynamicMethod('createSendgridTransport', function (array $config) {
+            $mailManager->extend(self::MODE_SENDGRID, function ($config) {
                 $factory = new SendgridTransportFactory();
 
                 if (!isset($config['api_key'])) {
@@ -54,8 +45,17 @@ class Plugin extends PluginBase
                     $config['api_key']
                 ));
             });
+            $settings = MailSetting::instance();
+            if ($settings->send_mode === self::MODE_SENDGRID) {
+                $config = App::make('config');
+                $config->set('mail.mailers.sendgrid.transport', self::MODE_SENDGRID);
+                $config->set('services.sendgrid.api_key', $settings->sendgrid_api_key);
+            }
         });
+    }
 
+    public function boot()
+    {
         MailSetting::extend(function ($model) {
             $model->bindEvent('model.beforeValidate', function () use ($model) {
                 $model->rules['sendgrid_api_key'] = 'required_if:send_mode,' . self::MODE_SENDGRID;

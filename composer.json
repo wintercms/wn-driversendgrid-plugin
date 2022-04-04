@@ -12,6 +12,7 @@
         }
     ],
     "require": {
-        "symfony/sendgrid-mailer": "^6.0.7"
+	"symfony/http-client": "^6.0",
+        "symfony/sendgrid-mailer": "^6.0.0"
     }
 }
