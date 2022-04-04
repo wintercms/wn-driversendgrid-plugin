@@ -1,0 +1,17 @@
+{
+    "name": "winter/wn-sendgriddriver-plugin",
+    "description": "Sendgrid Mail Driver",
+    "type": "winter-plugin",
+    "homepage": "https://github.com/wintercms/wn-sendgriddriver-plugin",
+    "keywords": [ "sendgrid", "wintercms", "mail", "driver" ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marc Jauvin",
+            "email": "marc.jauvin@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/sendgrid-mailer": "^6.0.7"
+    }
+}
