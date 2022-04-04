@@ -5,7 +5,7 @@ return [
 
     'fields' => [
         'sendgrid_api_key' => [
-            'label' => "Clée pour l'API de Sendgrid",
+            'label' => "Clée API Sendgrid",
             'comment' => "Entrez votre clée pour l'API de Sendgrid",
         ],
     ],

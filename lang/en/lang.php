@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'plugin_name' => 'Sendgrid mail driver',
     'plugin_description' => 'Sendgrid mail driver plugin',
 
     'fields' => [
