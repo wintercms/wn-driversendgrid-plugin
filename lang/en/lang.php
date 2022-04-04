@@ -2,7 +2,7 @@
 
 return [
     'plugin_name' => 'Sendgrid mail driver',
-    'plugin_description' => 'Sendgrid mail driver plugin',
+    'plugin_description' => 'Sendgrid mail driver functionality for Winter CMS.',
 
     'fields' => [
         'sendgrid_api_key' => [

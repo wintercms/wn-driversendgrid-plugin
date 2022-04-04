@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'plugin_description' => "Plugin qui ajoute l'envoi de courriel à travers Sendgrid",
+    'plugin_name' => "Pilote de courriel Sendgrid",
+    'plugin_description' => "Ajoute le pilote de courriel Sendgrid pour Winter CMS.",
 
     'fields' => [
         'sendgrid_api_key' => [
