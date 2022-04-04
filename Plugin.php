@@ -19,7 +19,7 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Sendgrid mail driver',
+            'name'        => 'winter.sendgriddriver::lang.plugin_name',
             'description' => 'winter.sendgriddriver::lang.plugin_description',
             'author'      => 'Winter',
             'icon'        => 'icon-leaf'
