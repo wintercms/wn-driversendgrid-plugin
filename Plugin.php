@@ -1,4 +1,4 @@
-<?php namespace Winter\SendgridDriver;
+<?php namespace Winter\DriverSendGrid;
 
 use App;
 use Event;
@@ -19,10 +19,11 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'winter.sendgriddriver::lang.plugin_name',
-            'description' => 'winter.sendgriddriver::lang.plugin_description',
-            'author'      => 'Winter',
-            'icon'        => 'icon-leaf'
+            'name'        => 'winter.driversendgrid::lang.plugin_name',
+            'description' => 'winter.driversendgrid::lang.plugin_description',
+            'homepage'    => 'https://github.com/wintercms/wn-driversendgrid-plugin',
+            'author'      => 'Winter CMS',
+            'icon'        => 'icon-leaf',
         ];
     }
 
@@ -68,13 +69,14 @@ class Plugin extends PluginBase
             }
 
             $field = $widget->getField('send_mode');
-            $field->options(array_merge($field->options(), [self::MODE_SENDGRID => "Sendgrid"]));
+            $field->options(array_merge($field->options(), [self::MODE_SENDGRID => 'SendGrid']));
 
             $widget->addTabFields([
                 'sendgrid_api_key' => [
-                    "tab"     => "system::lang.mail.general",
-                    'label'   => 'winter.sendgriddriver::lang.fields.sendgrid_api_key.label',
-                    'commentAbove' => 'winter.sendgriddriver::lang.fields.sendgrid_api_key.comment',
+                    'tab'     => 'system::lang.mail.general',
+                    'label'   => 'winter.driversendgrid::lang.sendgrid_api_key',
+                    'type'    => 'sensitive',
+                    'commentAbove' => 'winter.driversendgrid::lang.sendgrid_api_key_comment',
                     'trigger' => [
                         'action'    => 'show',
                         'field'     => 'send_mode',

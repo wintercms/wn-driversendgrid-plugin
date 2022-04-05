@@ -1,18 +1,28 @@
 {
-    "name": "winter/wn-sendgriddriver-plugin",
-    "description": "Sendgrid Mail Driver",
+    "name": "winter/wn-driversendgrid-plugin",
+    "description": "Driver that adds support for the SendGrid mailer to WinterCMS",
     "type": "winter-plugin",
-    "homepage": "https://github.com/wintercms/wn-sendgriddriver-plugin",
-    "keywords": [ "sendgrid", "wintercms", "mail", "driver" ],
+    "homepage": "https://github.com/wintercms/wn-driversendgrid-plugin",
+    "support": {
+        "issues": "https://github.com/wintercms/wn-driversendgrid-plugin/issues",
+        "discord": "https://discord.gg/D5MFSPH6Ux",
+        "source": "https://github.com/wintercms/wn-driversendgrid-plugin"
+    },
+    "keywords": ["sendgrid", "wintercms", "mail", "driver"],
     "license": "MIT",
     "authors": [
         {
             "name": "Marc Jauvin",
             "email": "marc.jauvin@gmail.com"
+        },
+        {
+            "name": "Winter CMS Maintainers",
+            "homepage": "https://wintercms.com",
+            "role": "Maintainer"
         }
     ],
     "require": {
-	"symfony/http-client": "^6.0",
+        "symfony/http-client": "^6.0",
         "symfony/sendgrid-mailer": "^6.0.0"
     }
 }
