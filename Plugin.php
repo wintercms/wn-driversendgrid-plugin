@@ -14,6 +14,8 @@ use Symfony\Component\Mailer\Bridge\Sendgrid\Transport\SendgridTransportFactory;
  */
 class Plugin extends PluginBase
 {
+    public $elevated = true;
+    
     const MODE_SENDGRID = 'sendgrid';
 
     public function pluginDetails()
