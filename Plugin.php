@@ -60,6 +60,7 @@ class Plugin extends PluginBase
             $model->bindEvent('model.beforeValidate', function () use ($model) {
                 $model->rules['sendgrid_api_key'] = 'required_if:send_mode,' . self::MODE_SENDGRID;
             });
+            $model->sendgrid_api_key = config('services.sendgrid.api_key');
         });
 
         Event::listen('backend.form.extendFields', function ($widget) {
